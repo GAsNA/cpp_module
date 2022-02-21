@@ -14,7 +14,7 @@
 # define CONTACT_HPP
 
 # include <iostream>
-
+# include <cstdlib>
 class Contact
 {
 	public:

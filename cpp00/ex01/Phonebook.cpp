@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 12:58:24 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/21 16:34:19 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/02/21 17:55:37 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,53 +29,6 @@ PhoneBook::~PhoneBook(void)
 	return ;
 }
 
-void	PhoneBook::add_contact()
-{
-	Contact		c;
-	std::string	tmp;
-
-	while (tmp.compare("\0") == 0)
-	{
-		std::cout << "\tFirst name: ";
-		getline(std::cin, tmp);
-	}
-	c.setFirstname(tmp);
-	tmp = "\0";
-	while (tmp.compare("\0") == 0)
-	{
-		std::cout << "\tLast name: ";
-		getline(std::cin, tmp);
-	}
-	c.setLastname(tmp);
-	tmp = "\0";
-	while (tmp.compare("\0") == 0)
-	{
-		std::cout << "\tNickname: ";
-		getline(std::cin, tmp);
-	}
-	c.setNickname(tmp);
-	tmp = "\0";
-	while (tmp.compare("\0") == 0)
-	{
-		std::cout << "\tPhone number: ";
-		getline(std::cin, tmp);
-	}
-	c.setPhone(tmp);
-	tmp = "\0";
-	while (tmp.compare("\0") == 0)
-	{
-		std::cout << "\tDarkest secret: ";
-		getline(std::cin, tmp);
-	}
-	c.setSecret(tmp);
-	this->contacts[this->index] = c;
-	if (this->nb_contacts < 8)
-		this->nb_contacts += 1;
-	this->index += 1;
-	if (index == 8)
-		this->index = 0;
-}
-
 static int	is_all_numbers(std::string str)
 {
 	int	i;
@@ -87,11 +40,50 @@ static int	is_all_numbers(std::string str)
 	return (1);
 }
 
+static void add_elem(std::string str, Contact *c, void (Contact::*f)(std::string), int is_phone)
+{
+	std::string	tmp;
+
+	while (tmp.compare("\0") == 0)
+	{
+		std::cout << str;
+		getline(std::cin, tmp);
+		if (std::cin.eof())
+			return ;
+		if (is_phone)
+			if (!is_all_numbers(tmp))
+				tmp.clear();
+	}
+	(*c.*f)(tmp);
+}
+
+void	PhoneBook::add_contact()
+{
+	Contact		c;
+
+	add_elem("\tFirst name: ", &c, &Contact::setFirstname, 0);
+	add_elem("\tLast name: ", &c, &Contact::setLastname, 0);
+	add_elem("\tNickname: ", &c, &Contact::setNickname, 0);
+	add_elem("\tPhone number: ", &c, &Contact::setPhone, 1);
+	add_elem("\tDarkest secret: ", &c, &Contact::setSecret, 0);
+	this->contacts[this->index] = c;
+	if (this->nb_contacts < 8)
+		this->nb_contacts += 1;
+	this->index += 1;
+	if (index == 8)
+		this->index = 0;
+}
+
 void	PhoneBook::get_all_contacts()
 {
 	int	i;
 	std::string	index;
 
+	if (this->nb_contacts == 0)
+	{
+		std::cout << "The phonebook is empty." << std::endl;
+		return ;
+	}
 	std::cout << std::setw(10) << "index" << "|" << std::setw(10) << "first name" << "|"
 		<< std::setw(10) << "last name" << "|" << std::setw(10) << "nickname" << "|" << std::endl;
 	i = -1;
@@ -102,6 +94,8 @@ void	PhoneBook::get_all_contacts()
 	{
 		std::cout << "Choose an index to see the details: ";
 		getline(std::cin, index);
+		if (std::cin.eof())
+			return ;
 	}
 	this->contacts[atoi(index.c_str())].put_infos();
 }

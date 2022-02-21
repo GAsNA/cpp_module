@@ -6,8 +6,8 @@ HEADERS			=	Phonebook.hpp	\
 					Contact.hpp
 
 SRCS			=	main.cpp		\
-					phonebook.cpp	\
-					contact.cpp
+					Phonebook.cpp	\
+					Contact.cpp
 
 OBJS			=	${SRCS:.cpp=.o}
 
@@ -24,7 +24,7 @@ all:			${NAME}
 ${NAME}:		${OBJS}
 				${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 
-.c.o:
+.cpp.o:
 				${CC} -c ${CFLAGS} $^ -o $@
 
 clean:
