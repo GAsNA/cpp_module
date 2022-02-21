@@ -6,13 +6,11 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 10:25:34 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/21 10:34:49 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/02/21 11:18:26 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-
-using namespace std;
 
 static void	ft_put_toupper(char *str)
 {
@@ -23,7 +21,7 @@ static void	ft_put_toupper(char *str)
 	{
 		if (str[i] >= 'a' && str[i] <= 'z')
 			str[i] -= 32;
-		cout << str[i];
+		std::cout << str[i];
 	}
 }
 
@@ -33,12 +31,12 @@ int	main(int ac, char **av)
 
 	if (ac == 1)
 	{
-		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 		return (0);
 	}
 	i = 0;
 	while (av[++i])
 		ft_put_toupper(av[i]);
-	cout << endl;
+	std::cout << std::endl;
 	return (0);
 }

@@ -2,11 +2,16 @@
 
 ### Variables
 
-SRCS			=	megaphone.cpp
+HEADERS			=	Phonebook.hpp	\
+					Contact.hpp
+
+SRCS			=	main.cpp		\
+					phonebook.cpp	\
+					contact.cpp
 
 OBJS			=	${SRCS:.cpp=.o}
 
-NAME			=	megaphone
+NAME			=	phonebook
 
 CC				=	clang++
 RM				=	rm -rf
