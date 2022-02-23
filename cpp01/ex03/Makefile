@@ -2,11 +2,11 @@
 
 ### Variables
 
-SRCS			=	main.cpp
+SRCS			=	main.cpp		\
 
 OBJS			=	${SRCS:.cpp=.o}
 
-NAME			=	brain
+NAME			=	violence
 
 CC				=	clang++
 RM				=	rm -rf
