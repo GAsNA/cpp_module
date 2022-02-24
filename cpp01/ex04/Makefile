@@ -6,7 +6,7 @@ SRCS			=	main.cpp
 
 OBJS			=	${SRCS:.cpp=.o}
 
-NAME			=	violence
+NAME			=	sed
 
 CC				=	clang++
 RM				=	rm -rf
@@ -24,6 +24,7 @@ ${NAME}:		${OBJS}
 
 clean:
 				${RM} ${OBJS}
+				${RM} *.replace
 
 fclean:			clean
 				${RM} ${NAME}
