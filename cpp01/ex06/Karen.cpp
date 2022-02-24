@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:13:24 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/24 16:24:43 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/02/24 16:45:12 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,21 @@ void	Karen::error(void)
 	std::cout << "This is unacceptable ! I want to speak to the manager now.\n" << std::endl;
 }
 
+static void	other(void)
+{
+	std::cout << "[ Probably complaining about insignificant problems ]\n" << std::endl;
+}
+
 void	Karen::complain(std::string level)
 {
-  std::map<std::string, FnPtr> funcs;
-  funcs["DEBUG"] = &Karen::debug;
-  funcs["INFO"] = &Karen::info;
-  funcs["WARNING"] = &Karen::warning;
-  funcs["ERROR"] = &Karen::error;
+	std::map<std::string, FnPtr> funcs;
+	funcs["DEBUG"] = &Karen::debug;
+	funcs["INFO"] = &Karen::info;
+	funcs["WARNING"] = &Karen::warning;
+	funcs["ERROR"] = &Karen::error;
 
-  if (funcs.count(level))
-  	(this->*funcs[level])();
+	if (funcs.count(level))
+		(this->*funcs[level])();
+	else
+		other();
 }

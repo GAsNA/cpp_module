@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Karen.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 13:13:59 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/24 16:23:10 by rleseur          ###   ########.fr       */
+/*   Created: 2022/02/24 13:54:35 by rleseur           #+#    #+#             */
+/*   Updated: 2022/02/24 14:29:04 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#ifndef KAREN_HPP
+# define KAREN_HPP
 
-int	main()
+# include <iostream>
+
+class Karen
 {
-	Karen k;
+	private:
+		void	debug(void);
+		void	info(void);
+		void	warning(void);
+		void	error(void);
+	
+	public:
+		Karen(void);
+		~Karen(void);
+		void	complain(std::string level);
+};
 
-	k.complain("DEBUG");
-	k.complain("INFO");
-	k.complain("WARNING");
-	k.complain("TEST");
-	k.complain("ERROR");
-	return (0);
-}
+#endif
