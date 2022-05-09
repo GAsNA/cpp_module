@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 12:58:24 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/21 17:55:37 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/05/07 18:02:27 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	is_all_numbers(std::string str)
 	while (str[++i])
 		if (!std::isdigit(str[i]))
 			return (0);
-	return (1);
+	return (i);
 }
 
 static void add_elem(std::string str, Contact *c, void (Contact::*f)(std::string), int is_phone)
@@ -51,7 +51,7 @@ static void add_elem(std::string str, Contact *c, void (Contact::*f)(std::string
 		if (std::cin.eof())
 			return ;
 		if (is_phone)
-			if (!is_all_numbers(tmp))
+			if (is_all_numbers(tmp) != 10)
 				tmp.clear();
 	}
 	(*c.*f)(tmp);

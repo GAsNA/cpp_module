@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 10:42:51 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/21 17:18:41 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/05/07 17:51:59 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main()
 {
-	std::string command;
+	std::string	command;
 	PhoneBook	pb;
 	
 	while (1)
