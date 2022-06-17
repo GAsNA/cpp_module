@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 12:58:24 by rleseur           #+#    #+#             */
-/*   Updated: 2022/05/07 18:02:27 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/05/09 10:56:44 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,17 @@ static int	is_all_numbers(std::string str)
 	return (i);
 }
 
+static int	others_than_space(std::string str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		if (str[i] != ' ')
+			return (1);
+	return (0);
+}
+
 static void add_elem(std::string str, Contact *c, void (Contact::*f)(std::string), int is_phone)
 {
 	std::string	tmp;
@@ -51,7 +62,12 @@ static void add_elem(std::string str, Contact *c, void (Contact::*f)(std::string
 		if (std::cin.eof())
 			return ;
 		if (is_phone)
+		{
 			if (is_all_numbers(tmp) != 10)
+				tmp.clear();
+		}
+		else
+			if (!others_than_space(tmp))
 				tmp.clear();
 	}
 	(*c.*f)(tmp);

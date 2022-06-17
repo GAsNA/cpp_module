@@ -6,24 +6,16 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 10:25:34 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/10 14:22:28 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/17 16:37:19 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-static void	ft_put_toupper(char *str)
-{
-	int	i;
-
-	i = -1;
-	while (str[++i])
-		std::cout << (char)toupper(str[i]);
-}
-
 int	main(int ac, char **av)
 {
 	int	i;
+	int	j;
 
 	if (ac == 1)
 	{
@@ -32,7 +24,11 @@ int	main(int ac, char **av)
 	}
 	i = 0;
 	while (av[++i])
-		ft_put_toupper(av[i]);
-	std::cout << std::endl;
+	{
+		j = -1;
+		while (av[i][++j])
+			std::cout << (char)toupper(av[i][j]);
+		std::cout << std::endl;
+	}
 	return (0);
 }
