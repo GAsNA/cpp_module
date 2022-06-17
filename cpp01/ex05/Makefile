@@ -3,11 +3,11 @@
 ### Variables
 
 SRCS			=	main.cpp	\
-					Karen.cpp
+					Harl.cpp
 
 OBJS			=	${SRCS:.cpp=.o}
 
-NAME			=	karen
+NAME			=	harl
 
 CC				=	clang++
 RM				=	rm -rf

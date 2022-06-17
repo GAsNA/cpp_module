@@ -6,15 +6,15 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:13:59 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/24 16:23:10 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/17 20:05:52 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include "Harl.hpp"
 
 int	main()
 {
-	Karen k;
+	Harl k;
 
 	k.complain("DEBUG");
 	k.complain("INFO");

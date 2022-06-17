@@ -6,15 +6,15 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:13:59 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/24 16:25:57 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/17 20:10:18 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include "Harl.hpp"
 
 int	main(int ac, char **av)
 {
-	Karen k;
+	Harl k;
 
 	if (ac == 2)
 		k.complain(av[1]);

@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 16:19:56 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/24 12:49:17 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/17 20:00:16 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,13 @@ int	main(int ac, char **av)
 	replace.open((std::string(av[1]) + std::string(".replace")).c_str());
 	text << read_file.rdbuf();
 	all_lines = text.str();
-	while (1 && av[2][0] != '\0')
+	while (av[2][0] != '\0')
 	{
 		pos = all_lines.find(std::string(av[2]));
 		if(pos == std::string::npos)
 			break;
 		all_lines.replace(pos, std::string(av[2]).length(), std::string(av[3]));
+		//problem: replace not allowed
 	}
 	read_file.close();
 	replace.write(all_lines.c_str(), all_lines.size());

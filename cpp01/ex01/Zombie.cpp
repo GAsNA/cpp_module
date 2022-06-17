@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 10:42:21 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/22 10:52:45 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/17 19:48:14 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 Zombie::Zombie(void)
 {
+	std::cout << "A zombie has been created." << std::endl;
 	return ;
 }
 
