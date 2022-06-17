@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 10:25:34 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/21 11:18:26 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/10 14:22:28 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,7 @@ static void	ft_put_toupper(char *str)
 
 	i = -1;
 	while (str[++i])
-	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] -= 32;
-		std::cout << str[i];
-	}
+		std::cout << (char)toupper(str[i]);
 }
 
 int	main(int ac, char **av)

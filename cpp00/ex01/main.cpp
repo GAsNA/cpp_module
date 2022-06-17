@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 10:42:51 by rleseur           #+#    #+#             */
-/*   Updated: 2022/05/07 17:51:59 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/10 14:26:58 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,9 @@ int	main()
 		if(command.compare("EXIT") == 0)
 			break ;
 		else if (command.compare("ADD") == 0)
-		{
-			std::cout << "Add a new contact" << std::endl;
 			pb.add_contact();
-		}
 		else if (command.compare("SEARCH") == 0)
-		{
-			std::cout << "Print all contacts and search one" << std::endl;
 			pb.get_all_contacts();
-		}
 		else
 			std::cout << "Nothing to be done for this" << std::endl;
 		std::cout << "\n" << std::endl;

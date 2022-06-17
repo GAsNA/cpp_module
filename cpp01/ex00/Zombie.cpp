@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 10:42:21 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/22 10:52:45 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/10 15:04:07 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,16 @@
 
 Zombie::Zombie(void)
 {
+	std::cout << "The zombie has been created." << std::endl;
 	return ;
 }
+
+/*Zombie::Zombie(std::string name)
+{
+	this->name = name;
+	std::cout << "The zombie '" << this->name << "' has been created." << std::endl;
+	return ;
+}*/
 
 Zombie::~Zombie(void)
 {

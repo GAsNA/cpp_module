@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 10:50:37 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/22 13:17:11 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/10 15:04:53 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 #include "Zombie.hpp"
 #include <cstdlib>
 
-int	main(int ac, char **av)
+Zombie*	newZombie(std::string name);
+void	randomChump(std::string name);
+
+int	main()
 {
-	(void)ac;
-	(void)av;
+	Zombie	*z = newZombie("Foo");
+	randomChump("Boo");
+	z->announce();
+	delete z;
 	return (0);
 }
