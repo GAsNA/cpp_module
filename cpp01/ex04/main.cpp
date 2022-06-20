@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 16:19:56 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/17 20:00:16 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/20 14:23:12 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,28 @@ static int	ft_put_error_read(void)
 	return (1);
 }
 
+static std::string	ft_replace(std::string line, int pos, int size, std::string rep)
+{
+	int	i;
+	int	j;
+	int	k;
+	std::string new_line;
+
+	new_line.reserve(line.length() - size + rep.length());
+	i = -1;
+	j = -1;
+	while (++i < pos)
+		new_line[i] = line[++j];
+	i--;
+	j += size;
+	k = -1;
+	while (rep[++k])
+		new_line[++i] = rep[k];
+	while (line[++j])
+		new_line[++i] = line[j];
+	return (new_line.c_str());
+}
+
 int	main(int ac, char **av)
 {
 	std::ofstream		replace;
@@ -43,13 +65,12 @@ int	main(int ac, char **av)
 	replace.open((std::string(av[1]) + std::string(".replace")).c_str());
 	text << read_file.rdbuf();
 	all_lines = text.str();
-	while (av[2][0] != '\0')
+	while (1)
 	{
 		pos = all_lines.find(std::string(av[2]));
 		if(pos == std::string::npos)
 			break;
-		all_lines.replace(pos, std::string(av[2]).length(), std::string(av[3]));
-		//problem: replace not allowed
+		all_lines = ft_replace(all_lines, pos, std::string(av[2]).length(), std::string(av[3]));
 	}
 	read_file.close();
 	replace.write(all_lines.c_str(), all_lines.size());

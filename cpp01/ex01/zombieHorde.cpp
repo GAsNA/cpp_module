@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 13:19:03 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/17 19:50:44 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/20 13:41:09 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 
 Zombie*	zombieHorde(int N, std::string name)
 {
-	Zombie	*z;
+	Zombie	*horde;
 
-	z = (Zombie *)malloc(N * sizeof(Zombie));
-	if (!z)
-		return (0);
+	horde = new Zombie[N];
 	while (--N >= 0)
-		z[N].setName(name);
-	return (z);
+		horde[N].setName(name);
+	return (horde);
 }

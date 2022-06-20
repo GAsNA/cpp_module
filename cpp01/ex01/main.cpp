@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 10:50:37 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/17 19:49:04 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/20 13:40:09 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int	main(int ac, char **av)
 	i = -1;
 	while (++i < N)
 		z[i].announce();
-	i = -1;
-	while (++i < N)
-		z[i].~Zombie();
+	delete[] z;
 	return (0);
 }
