@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 10:32:03 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/22 14:56:30 by rleseur          ###   ########.fr       */
+/*   Created: 2022/06/22 13:35:28 by rleseur           #+#    #+#             */
+/*   Updated: 2022/06/23 17:39:00 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "ClapTrap.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-int	main(void)
+# include "ClapTrap.hpp"
+
+class FragTrap : virtual public ClapTrap
 {
-	ClapTrap a("Foo");
-	ClapTrap b("Boo");
+	public:
+		FragTrap(std::string);
+		~FragTrap();	
+		void	highFivesGuys(void);
+};
 
-	a.attack("Boo");
-	b.takeDamage(0);
-	b.beRepaired(1);
-	return (0);
-}
+#endif
