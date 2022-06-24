@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 10:42:51 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/10 14:26:58 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/24 17:16:47 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@ int	main()
 	
 	while (1)
 	{
-		if (std::cin.eof())
-			break ;
 		std::cout << "Enter command: ";
 		getline(std::cin, command);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			break ;
+		}
 		if(command.compare("EXIT") == 0)
 			break ;
 		else if (command.compare("ADD") == 0)
