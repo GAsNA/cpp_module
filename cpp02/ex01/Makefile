@@ -2,16 +2,25 @@
 
 ### Variables
 
-SRCS			=	main.cpp	\
-					Fixed.cpp
+SRCS_PATH		=	./srcs/
+OBJS_PATH		=	./objs/
+HEAD_PATH		=	./headers/
 
-OBJS			=	${SRCS:.cpp=.o}
+FILES			=	main.cpp	\
+					Fixed.cpp
+HEAD_FILES		=	Fixed.hpp
+
+SRCS			=	${addprefix ${SRCS_PATH}, ${FILES}}
+OBJS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.o}}
+DEPS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.d}}
+HEAD			=	${addprefix ${HEAD_PATH}, ${HEAD_FILES}}
 
 NAME			=	canon
 
 CC				=	clang++
 RM				=	rm -rf
 CFLAGS			=	-Wall -Wextra -Werror -std=c++98
+
 
 ### Commandes
 
@@ -20,15 +29,18 @@ all:			${NAME}
 ${NAME}:		${OBJS}
 				${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 
-.cpp.o:
-				${CC} -c ${CFLAGS} $^ -o $@
+${OBJS_PATH}%.o:	${SRCS_PATH}%.cpp
+				mkdir -p ${dir $@}
+				${CC} -c ${CFLAGS} -MMD -MP -I${HEAD_PATH} $< -o $@
 
 clean:
-				${RM} ${OBJS}
+				${RM} ${OBJS_PATH}
 
 fclean:			clean
 				${RM} ${NAME}
 
 re:				fclean all
 
-.PHONY:			all clean fclean
+-include : ${DEPS}
+
+.PHONY:			all clean fclean re

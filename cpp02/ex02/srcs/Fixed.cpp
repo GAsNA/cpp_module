@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 11:30:43 by rleseur           #+#    #+#             */
-/*   Updated: 2022/03/03 23:42:36 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/27 10:09:52 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,21 @@
 Fixed::Fixed()
 {
 	//std::cout << "Default constructor called" << std::endl;
-	this->value = 0;
+	this->_value = 0;
 	return ;
 }
 
 Fixed::Fixed(int const val)
 {
 	//std::cout << "Int constructor called" << std::endl;
-	this->value = (val << Fixed::bits);
+	this->_value = (val << Fixed::_bits);
 	return ;
 }
 
 Fixed::Fixed(float const val)
 {
 	//std::cout << "Float constructor called" << std::endl;
-	this->value = roundf(val * (1 << Fixed::bits));
+	this->_value = roundf(val * (1 << Fixed::_bits));
 	return ;
 }
 
@@ -45,7 +45,7 @@ Fixed::Fixed(const Fixed &f)
 Fixed &Fixed::operator=(const Fixed &f)
 {
 	//std::cout << "Copy assignment operator called" << std::endl;
-	this->value = f.getRawBits();
+	this->_value = f.getRawBits();
 	return (*this);
 }
 
@@ -70,28 +70,28 @@ Fixed::~Fixed()
 Fixed Fixed::operator+(const Fixed &f) const
 {
 	Fixed	f2;
-	f2.setRawBits(this->value + f.getRawBits());
+	f2.setRawBits(this->_value + f.getRawBits());
 	return (f2);
 }
 
 Fixed Fixed::operator-(const Fixed &f) const
 {
 	Fixed	f2;
-	f2.setRawBits(this->value - f.getRawBits());
+	f2.setRawBits(this->_value - f.getRawBits());
 	return (f2);
 }
 
 Fixed Fixed::operator*(const Fixed &f) const
 {
 	Fixed	f2;
-	f2.setRawBits((this->value * f.getRawBits()) >> Fixed::bits);
+	f2.setRawBits((this->_value * f.getRawBits()) >> Fixed::_bits);
 	return (f2);
 }
 
 Fixed Fixed::operator/(const Fixed &f) const
 {
 	Fixed	f2;
-	f2.setRawBits((this->value << Fixed::bits) / f.getRawBits());
+	f2.setRawBits((this->_value << Fixed::_bits) / f.getRawBits());
 	return (f2);
 }
 
@@ -103,42 +103,42 @@ Fixed Fixed::operator/(const Fixed &f) const
 
 bool Fixed::operator>(Fixed const &f) const
 {
-	if (this->value > f.getRawBits())
+	if (this->_value > f.getRawBits())
 		return (1);
 	return (0);
 }
 
 bool Fixed::operator<(Fixed const &f) const
 {
-	if (this->value < f.getRawBits())
+	if (this->_value < f.getRawBits())
 		return (1);
 	return (0);
 }
 
 bool Fixed::operator>=(Fixed const &f) const
 {
-	if (this->value >= f.getRawBits())
+	if (this->_value >= f.getRawBits())
 		return (1);
 	return (0);
 }
 
 bool Fixed::operator<=(Fixed const &f) const
 {
-	if (this->value <= f.getRawBits())
+	if (this->_value <= f.getRawBits())
 		return (1);
 	return (0);
 }
 
 bool Fixed::operator==(Fixed const &f) const
 {
-	if (this->value == f.getRawBits())
+	if (this->_value == f.getRawBits())
 		return (1);
 	return (0);
 }
 
 bool Fixed::operator!=(Fixed const &f) const
 {
-	if (this->value != f.getRawBits())
+	if (this->_value != f.getRawBits())
 		return (1);
 	return (0);
 }
@@ -151,7 +151,7 @@ bool Fixed::operator!=(Fixed const &f) const
 
 Fixed &Fixed::operator++(void)
 {
-	this->value++;
+	this->_value++;
 	return (*this);
 }
 
@@ -164,7 +164,7 @@ Fixed Fixed::operator++(int)
 
 Fixed &Fixed::operator--(void)
 {
-	this->value--;
+	this->_value--;
 	return (*this);
 }
 
@@ -198,20 +198,20 @@ const Fixed &Fixed::max(const Fixed &f1, const Fixed &f2)
 int		Fixed::getRawBits(void) const
 {
 	//std::cout << "getRawBits member function called" << std::endl;
-	return (this->value);
+	return (this->_value);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	this->value = raw;
+	this->_value = raw;
 }
 
 float	Fixed::toFloat(void) const
 {
-	return ((float)this->value / (float)(1 << Fixed::bits));
+	return ((float)this->_value / (float)(1 << Fixed::_bits));
 }
 
 int		Fixed::toInt(void) const
 {
-	return (this->value >> Fixed::bits);
+	return (this->_value >> Fixed::_bits);
 }

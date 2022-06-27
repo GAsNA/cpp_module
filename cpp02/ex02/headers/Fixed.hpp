@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 11:24:31 by rleseur           #+#    #+#             */
-/*   Updated: 2022/03/03 23:41:46 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/27 10:08:49 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 class Fixed
 {
 	private:
-		int					value;
-		static const int	bits = 8;
+		int					_value;
+		static const int	_bits = 8;
 
 	public:
 		Fixed();

@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/02 11:21:05 by rleseur           #+#    #+#             */
-/*   Updated: 2022/03/03 23:36:41 by rleseur          ###   ########.fr       */
+/*   Created: 2022/03/02 11:24:31 by rleseur           #+#    #+#             */
+/*   Updated: 2022/06/27 10:00:46 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Fixed.hpp"
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-int	main(void)
+class Fixed
 {
-	Fixed		a;
-	Fixed const	b(Fixed(5.05f) * Fixed(2));
-	
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
+	private:
+		int					_value;
+		static const int	_bits = 8;
 
-	std::cout << b << std::endl;
+	public:
+		Fixed();
+		Fixed(const Fixed &); // constructeur de recopie
+		Fixed &operator=(const Fixed &);// surcharge de l’opérateur d’affectation
+		~Fixed();
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
+};
 
-	std::cout << Fixed::max(a, b) << std::endl;
-
-	return (0);
-}
+#endif
