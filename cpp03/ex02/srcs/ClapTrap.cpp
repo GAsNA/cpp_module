@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 10:39:34 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/23 08:55:31 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/27 15:51:50 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,27 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _pv(10), _energy(10), _attac
 	std::cout << "A ClapTrap has been created!" << std::endl;
 }
 
-ClapTrap::ClapTrap(ClapTrap const & copy) : _name(copy._name), _pv(copy._pv), _energy(copy._energy), _attack_dmg(copy._attack_dmg)
+ClapTrap::ClapTrap(ClapTrap const & copy)
 {
 	std::cout << "Copy construcor called" << std::endl;
+	if (this == &copy)
+		return ;
+	this->_name = copy._name;
+	this->_pv = copy._pv;
+	this->_energy = copy._energy;
+	this->_attack_dmg = copy._attack_dmg;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "A ClapTrap has been destroyed!" << std::endl;
+	std::cout << "A Clap Trap has been destroyed!" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
+	if (this == &rhs)
+		return (*this);
 	this->_name = rhs._name;
 	this->_pv = rhs._pv;
 	this->_energy = rhs._energy;

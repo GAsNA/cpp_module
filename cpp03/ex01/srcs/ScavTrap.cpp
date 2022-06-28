@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 16:47:40 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/23 18:08:15 by rleseur          ###   ########.fr       */
+/*   Created: 2022/03/09 10:39:34 by rleseur           #+#    #+#             */
+/*   Updated: 2022/06/27 15:53:12 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-# define DIAMONDTRAP_HPP
+#include "ScavTrap.hpp"
 
-# include "ScavTrap.hpp"
-# include "FragTrap.hpp"
-
-class DiamondTrap : virtual public FragTrap, virtual public ScavTrap
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	private:
-		std::string _name;
+	this->_pv = 100;
+	this->_energy = 50;
+	this->_attack_dmg = 20;
+	std::cout << "A ScavTrap has been created!" << std::endl;
+}
 
-	public:
-		DiamondTrap(std::string name);
-		~DiamondTrap();
-		void	whoAmI();
-};
+ScavTrap::~ScavTrap()
+{
+	std::cout << "A ScavTrap has been destroyed!" << std::endl;
+}
 
-#endif
+void ScavTrap::guardGate()
+{
+	std::cout << "A ScavTrap is on Gate keeper mode." << std::endl;
+}

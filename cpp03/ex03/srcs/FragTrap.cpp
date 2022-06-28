@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 10:39:34 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/23 09:06:53 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/28 09:42:35 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)//_name(name), _pv(100), _energy(50), _attack_dmg(20)
+FragTrap::FragTrap(std::string name) : _name(name), _pv(100), _energy(100), _attack_dmg(30)
 {
-	this->_pv = 100;
-	this->_energy = 50;
-	this->_attack_dmg = 20;
-	std::cout << "A ScavTrap has been created!" << std::endl;
+	std::cout << "A FragTrap has been created!" << std::endl;
 }
 
-ScavTrap::~ScavTrap()
+FragTrap::FragTrap(void) : _name(""), _pv(100), _energy(100), _attack_dmg(30)
 {
-	std::cout << "A ScavTrap has been destroyed!" << std::endl;
+	std::cout << "A FragTrap has been created!" << std::endl;
 }
 
-void ScavTrap::guardGate()
+FragTrap::~FragTrap()
 {
-	std::cout << "A ScavTrap is on Gate keeper mode." << std::endl;
+	std::cout << "A FragTrap has been destroyed!" << std::endl;
+}
+
+void FragTrap::highFivesGuys(void)
+{
+	std::cout << "Can we high fives ?" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 11:30:43 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/27 10:09:52 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/27 13:26:26 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ Fixed::Fixed(float const val)
 Fixed::Fixed(const Fixed &f)
 {
 	//std::cout << "Copy constructor called" << std::endl;
-	*this = f;
+	if (&f != this)
+		this->_value = f.getRawBits();
 	return ;
 }
 

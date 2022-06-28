@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 10:33:24 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/23 08:55:38 by rleseur          ###   ########.fr       */
+/*   Created: 2022/06/22 13:35:28 by rleseur           #+#    #+#             */
+/*   Updated: 2022/06/28 09:45:41 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-# include <iostream>
+# include "ClapTrap.hpp"
 
-// Coplienne: private underscore, constructeur defaut, constructeur copy, operator =, destructeur
-
-class ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
+	public:
+		ScavTrap(std::string);
+		~ScavTrap();	
+		void	guardGate();
+
 	protected:
+		ScavTrap(void);
 		std::string	_name;
 		int			_pv;
 		int			_energy;
 		int			_attack_dmg;
-
-	public:
-		ClapTrap(std::string); // constructeur
-		ClapTrap(ClapTrap const & copy); // constructeur par copie
-		ClapTrap &operator=(ClapTrap const & rhs); // surcharge d'operateur =
-		~ClapTrap();
-		void	attack(const std::string&);
-		void	takeDamage(unsigned int);
-		void	beRepaired(unsigned int);
 };
 
 #endif
