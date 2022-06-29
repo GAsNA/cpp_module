@@ -6,7 +6,7 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 12:33:18 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/29 17:34:04 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/29 23:23:28 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,32 @@ int main()
 
 	std::cout << std::endl << "----------------------" << std::endl << std::endl;
 
-/*	{
-		Brain *b = new Brain();
-	(void)b;
-	}*/
+	{
+		int n = 2;
+		const Animal *tab[n];
+		for (int i = 0; i < n; i++)
+		{
+			if (i % 2 == 0)
+				tab[i] = new Dog();
+			else
+				tab[i] = new Cat();
+		}
+		
+		std::cout << std::endl;
+
+		tab[0]->getBrain()->set_idea("I'm a first idea.");
+		tab[1]->getBrain()->set_idea("I'm another idea.");
+		tab[0]->getBrain()->set_idea("I'm a last idea.");
+		
+		std::cout << tab[0]->getBrain()->get_one_idea(0) << std::endl;
+		std::cout << tab[0]->getBrain()->get_one_idea(42) << std::endl;
+		std::cout << tab[0]->getBrain()->get_one_idea(1) << std::endl;
+		std::cout << tab[1]->getBrain()->get_one_idea(0) << std::endl;
+
+		std::cout << std::endl;
+
+		for (int i = 0; i < n; i++)
+			delete tab[i];
+	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 12:19:20 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/29 18:00:24 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/29 23:22:45 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Dog : public Animal
 		~Dog(void);
 		std::string getType(void) const;
 		void makeSound(void) const;
+		Brain &getBrain(void) const;
 
 	private:
 		Brain *_brain;

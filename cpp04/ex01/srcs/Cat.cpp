@@ -6,7 +6,7 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 12:25:43 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/29 17:58:22 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/29 23:21:17 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,9 @@ std::string Cat::getType(void) const
 void	Cat::makeSound(void) const
 {
 	std::cout << "Miaouu!" << std::endl;
+}
+
+Brain	&Cat::getBrain(void) const
+{
+	return (*this->_brain);
 }

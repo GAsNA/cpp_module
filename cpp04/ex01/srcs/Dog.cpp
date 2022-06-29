@@ -6,7 +6,7 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 12:25:43 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/29 17:59:29 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/29 23:21:53 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,9 @@ std::string Dog::getType(void) const
 void	Dog::makeSound(void) const
 {
 	std::cout << "Waouf Waouf!" << std::endl;
+}
+
+Brain	&Dog::getBrain(void) const
+{
+	return (*this->_brain);
 }
