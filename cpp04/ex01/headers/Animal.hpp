@@ -6,7 +6,7 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 12:17:33 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/29 17:59:44 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/30 10:25:57 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <string>
 # include <iostream>
+
+# include "Brain.hpp"
 
 class Animal
 {
@@ -28,6 +30,7 @@ class Animal
 		virtual ~Animal(void);
 		std::string getType(void) const;
 		virtual void makeSound(void) const;
+		virtual Brain &getBrain(void) const = 0;
 };
 
 #endif

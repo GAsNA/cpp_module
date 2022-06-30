@@ -6,7 +6,7 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 15:43:19 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/29 23:18:21 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/30 10:45:01 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ void	Brain::set_idea(std::string idea)
 std::string	Brain::get_one_idea(int nb) const
 {
 	if (nb < 0 || nb > 99)
-		return NULL;
-	return (this->_ideas[nb].empty() ? NULL : this->_ideas[nb]);
+		return "";
+	return (this->_ideas[nb]);
 }
