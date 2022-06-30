@@ -6,18 +6,18 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:07:54 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/30 14:33:56 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/30 18:34:34 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice(std::string const & type) : _type(type)
+Ice::Ice() : AMateria("ice")
 {
 	std::cout << "A Ice has been created." << std::endl;
 }
 
-Ice::Ice(Ice const &cpy)
+Ice::Ice(Ice const &cpy) : AMateria("ice")
 {
 	std::cout << "Copy constructor called. (Ice)" << std::endl;
 	if (this == &cpy)
@@ -25,7 +25,7 @@ Ice::Ice(Ice const &cpy)
 	this->_type = cpy._type;
 }
 
-Ice &operator=(Ice const &rhs)
+Ice &Ice::operator=(Ice const &rhs)
 {
 	std::cout << "Copy constructor called. (Ice)" << std::endl;
 	if (this == &rhs)
@@ -46,5 +46,5 @@ AMateria	*Ice::clone() const
 
 void	Ice::use(ICharacter& target)
 {
-	std::cout <<  "* shoots an ice bolt at " << target->getName() << " *" << std::endl;
+	std::cout <<  "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

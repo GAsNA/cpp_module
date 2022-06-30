@@ -6,12 +6,14 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 14:11:17 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/30 14:35:16 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/30 18:21:28 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICE_HPP
 # define ICE_HPP
+
+# include "AMateria.hpp"
 
 class Cure : public AMateria
 {

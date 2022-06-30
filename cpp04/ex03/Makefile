@@ -6,8 +6,16 @@ SRCS_PATH		=	./srcs/
 OBJS_PATH		=	./objs/
 HEAD_PATH		=	./headers/
 
-FILES			=	main.cpp
-HEAD_FILES		=
+FILES			=	main.cpp		\
+					Character.cpp	\
+					AMateria.cpp	\
+					Cure.cpp		\
+					Ice.cpp
+HEAD_FILES		=	AMateria.hpp	\
+					Character.hpp	\
+					Cure.hpp		\
+					Ice.hpp			\
+					ICharacter.hpp
 
 SRCS			=	${addprefix ${SRCS_PATH}, ${FILES}}
 OBJS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.o}}

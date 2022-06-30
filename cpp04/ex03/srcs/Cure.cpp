@@ -6,18 +6,18 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:07:54 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/30 14:36:16 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/30 18:31:58 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure(std::string const & type) : _type(type)
+Cure::Cure() : AMateria("cure")
 {
 	std::cout << "A Cure has been created." << std::endl;
 }
 
-Cure::Cure(Cure const &cpy)
+Cure::Cure(Cure const &cpy) : AMateria("cure")
 {
 	std::cout << "Copy constructor called. (Cure)" << std::endl;
 	if (this == &cpy)
@@ -25,7 +25,7 @@ Cure::Cure(Cure const &cpy)
 	this->_type = cpy._type;
 }
 
-Cure &operator=(Cure const &rhs)
+Cure &Cure::operator=(Cure const &rhs)
 {
 	std::cout << "Copy constructor called. (Cure)" << std::endl;
 	if (this == &rhs)
@@ -46,5 +46,5 @@ AMateria	*Cure::clone() const
 
 void	Cure::use(ICharacter& target)
 {
-	std::cout <<  "* heals " << target->getName() << "'s wounds *" << std::endl;
+	std::cout <<  "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

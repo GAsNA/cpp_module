@@ -6,12 +6,14 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 14:50:22 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/30 14:51:10 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/06/30 18:45:44 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
+
+# include "AMateria.hpp"
 
 class ICharacter
 {
