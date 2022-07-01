@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:07:54 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/01 09:08:09 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/01 11:21:36 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,20 @@ Character &Character::operator=(Character const &rhs)
 		return (*this);
 	this->_name = rhs._name;
 	for (int i = 0; i < 4; i++)
+	{
+		if (this->_items[i])
+			delete this->_items[i];
 		this->_items[i] = rhs._items[i];
+	}
 	return (*this);
 }
 
 Character::~Character()
 {
 	std::cout << "A Character has been destroyed." << std::endl;
+	for (int i = 0; i < 4; i++)
+		if (this->_items[i])
+			delete this->_items[i];
 }
 
 std::string const	&Character::getName() const
