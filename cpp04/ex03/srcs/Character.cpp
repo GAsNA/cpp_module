@@ -6,13 +6,13 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:07:54 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/30 18:18:56 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/01 09:08:09 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character(std::string name) : _name(name)
+Character::Character(std::string &name) : _name(name)
 {
 	std::cout << "A Character has been created." << std::endl;
 }

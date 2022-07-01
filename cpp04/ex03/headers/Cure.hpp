@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 14:11:17 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/30 18:21:28 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/01 09:10:19 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ class Cure : public AMateria
 		Cure(Cure const &cpy);
 		Cure &operator=(Cure const &rhs);
 		~Cure();
-		AMateria *clone() const;
-		void	use(ICharacter& target);
+		/*virtual*/ AMateria *clone() const;
+		/*virtual*/ void	use(ICharacter& target);
 };
 
 #endif
