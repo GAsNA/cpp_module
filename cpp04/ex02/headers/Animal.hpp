@@ -6,7 +6,7 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 12:17:33 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/30 10:51:11 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/01 09:00:39 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,9 @@ class Animal
 
 	public:
 		Animal(void);
-		Animal(Animal const &cpy);
-		Animal &operator=(Animal const &rhs);
 		virtual ~Animal(void);
 		std::string getType(void) const;
-		virtual void makeSound(void) const;
+		virtual void makeSound(void) const = 0;
 		virtual Brain &getBrain(void) const = 0;
 };
 

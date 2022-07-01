@@ -10,14 +10,10 @@ FILES			=	main.cpp	\
 					Animal.cpp	\
 					Dog.cpp		\
 					Cat.cpp		\
-					WrongAnimal.cpp	\
-					WrongCat.cpp	\
 					Brain.cpp
 HEAD_FILES		=	Animal.hpp	\
 					Dog.hpp		\
 					Cat.hpp		\
-					WrongAnimal.hpp	\
-					WrongCat.hpp	\
 					Brain.hpp
 
 SRCS			=	${addprefix ${SRCS_PATH}, ${FILES}}
