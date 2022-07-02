@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:07:54 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/30 18:31:58 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/02 14:20:03 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Cure::Cure() : AMateria("cure")
 {
-	std::cout << "A Cure has been created." << std::endl;
+//	std::cout << "A Cure has been created." << std::endl;
 }
 
 Cure::Cure(Cure const &cpy) : AMateria("cure")
 {
-	std::cout << "Copy constructor called. (Cure)" << std::endl;
+//	std::cout << "Copy constructor called. (Cure)" << std::endl;
 	if (this == &cpy)
 		return ;
 	this->_type = cpy._type;
@@ -27,7 +27,7 @@ Cure::Cure(Cure const &cpy) : AMateria("cure")
 
 Cure &Cure::operator=(Cure const &rhs)
 {
-	std::cout << "Copy constructor called. (Cure)" << std::endl;
+//	std::cout << "Copy constructor called. (Cure)" << std::endl;
 	if (this == &rhs)
 		return (*this);
 	this->_type = rhs._type;
@@ -36,7 +36,7 @@ Cure &Cure::operator=(Cure const &rhs)
 
 Cure::~Cure()
 {
-	std::cout << "A Cure has been destroyed." << std::endl;
+//	std::cout << "A Cure has been destroyed." << std::endl;
 }
 
 AMateria	*Cure::clone() const

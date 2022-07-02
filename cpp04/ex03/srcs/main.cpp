@@ -6,11 +6,19 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:00:50 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/01 13:38:09 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/02 13:49:45 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+
+#include "IMateriaSource.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "Character.hpp"
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
+#include "MateriaSource.hpp"
 
 int main()
 {

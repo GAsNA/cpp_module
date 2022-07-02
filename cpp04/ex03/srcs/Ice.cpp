@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:07:54 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/30 18:34:34 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/02 14:20:20 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Ice::Ice() : AMateria("ice")
 {
-	std::cout << "A Ice has been created." << std::endl;
+//	std::cout << "A Ice has been created." << std::endl;
 }
 
 Ice::Ice(Ice const &cpy) : AMateria("ice")
 {
-	std::cout << "Copy constructor called. (Ice)" << std::endl;
+//	std::cout << "Copy constructor called. (Ice)" << std::endl;
 	if (this == &cpy)
 		return ;
 	this->_type = cpy._type;
@@ -27,7 +27,7 @@ Ice::Ice(Ice const &cpy) : AMateria("ice")
 
 Ice &Ice::operator=(Ice const &rhs)
 {
-	std::cout << "Copy constructor called. (Ice)" << std::endl;
+//	std::cout << "Copy constructor called. (Ice)" << std::endl;
 	if (this == &rhs)
 		return (*this);
 	this->_type = rhs._type;
@@ -36,7 +36,7 @@ Ice &Ice::operator=(Ice const &rhs)
 
 Ice::~Ice()
 {
-	std::cout << "A Ice has been destroyed." << std::endl;
+//	std::cout << "A Ice has been destroyed." << std::endl;
 }
 
 AMateria	*Ice::clone() const

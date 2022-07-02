@@ -10,12 +10,15 @@ FILES			=	main.cpp		\
 					Character.cpp	\
 					AMateria.cpp	\
 					Cure.cpp		\
-					Ice.cpp
+					Ice.cpp			\
+					MateriaSource.cpp
 HEAD_FILES		=	AMateria.hpp	\
 					Character.hpp	\
 					Cure.hpp		\
 					Ice.hpp			\
-					ICharacter.hpp
+					ICharacter.hpp		\
+					IMateriaSource.hpp	\
+					MateriaSource.hpp
 
 SRCS			=	${addprefix ${SRCS_PATH}, ${FILES}}
 OBJS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.o}}

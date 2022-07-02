@@ -6,12 +6,12 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 14:11:17 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/01 09:10:19 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/02 13:53:35 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-# define ICE_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
 # include "AMateria.hpp"
 

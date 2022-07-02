@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 14:51:46 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/01 09:05:23 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/02 13:51:16 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Character : public ICharacter
 		AMateria	*_items[4];
 
 	public:
-		Character(std::string &name);
+		Character(std::string name);
 		Character(Character const &cpy);
 		Character &operator=(Character const &rhs);
 		~Character();
