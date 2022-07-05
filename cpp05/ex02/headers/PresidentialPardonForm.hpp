@@ -1,50 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/01 14:19:00 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/05 10:14:22 by rleseur          ###   ########.fr       */
+/*   Created: 2022/07/04 12:48:22 by rleseur           #+#    #+#             */
+/*   Updated: 2022/07/05 17:03:00 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
 # include <string>
 # include <iostream>
 
 # include "Form.hpp"
-class Form;
 
-class Bureaucrat
+class PresidentialPardonForm : public Form
 {
 	private:
 		std::string	_name;
-		int	_grade;
-	
-		void	checkGrade(int grade) const;
+		bool		_signed;
+		int		_grade_sign;
+		int		_grade_exec;
+
+		void		checkGrade(int grade) const;
 
 	public:
-		Bureaucrat(std::string name, int grade);
-		Bureaucrat(Bureaucrat const &cpy);
-		Bureaucrat &operator=(Bureaucrat const &rhs);
-		~Bureaucrat();
+		PresidentialPardonForm(std::string name);
+		PresidentialPardonForm(PresidentialPardonForm const &cpy);
+		PresidentialPardonForm &operator=(PresidentialPardonForm const &rhs);
+		~PresidentialPardonForm();
 
-		std::string getName(void) const;
-		int			getGrade(void) const;
+		std::string	getName() const;
+		bool		isSigned() const;
+		int			getGradeSign() const;
+		int			getGradeExec() const;
 
-		void incrementGrade(void);
-		void decrementGrade(void);
-		void signForm(Form *f);
+		void	beSigned(Bureaucrat *b);
 
 		class GradeTooHighException : public std::exception
 		{
 			public:
 				virtual const char* what() const throw() {
-					return "Grade too high! (Bureaucrat)";
+					return "Grade too high! (PresidentialPardonForm)";
 				}
 		};
 
@@ -52,11 +53,11 @@ class Bureaucrat
 		{
 			public:
 				virtual const char* what() const throw() {
-					return "Grade too low! (Bureaucrat)";
+					return "Grade too low! (PresidentialPardonForm)";
 				}
 		};
 };
 
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &b);
+std::ostream &operator<<(std::ostream &out, const PresidentialPardonForm &scf);
 
 #endif

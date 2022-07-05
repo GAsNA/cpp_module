@@ -8,10 +8,15 @@ HEAD_PATH		=	./headers/
 
 FILES			=	main.cpp		\
 					Bureaucrat.cpp	\
-					Form.cpp
+					Form.cpp	\
+					ShrubberyCreationForm.cpp\
+					RobotomyRequestForm.cpp	\
+					PresidentialPardonForm.cpp
 HEAD_FILES		=	Bureaucrat.hpp	\
-					Form.hpp
-
+					Form.hpp\
+					ShrubberyCreationForm.hpp\
+					RobotomyRequestForm.hpp	\
+					PresidentialPardonForm.hpp
 SRCS			=	${addprefix ${SRCS_PATH}, ${FILES}}
 OBJS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.o}}
 DEPS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.d}}

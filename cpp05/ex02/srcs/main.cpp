@@ -6,20 +6,21 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 14:17:39 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/04 13:55:14 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/05 16:49:26 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main()
 {
 	try
 	{
 		Bureaucrat b = Bureaucrat("B", 42);
-		Form f = Form("F", 0, 37);
+		ShrubberyCreationForm f = ShrubberyCreationForm("F");
 
 		std::cout << std::endl;
 
@@ -37,7 +38,7 @@ int main()
 	try
 	{
 		Bureaucrat b = Bureaucrat("B", 42);
-		Form f = Form("F", 67, 37);
+		ShrubberyCreationForm f = ShrubberyCreationForm("F");
 
 		std::cout << std::endl;
 
@@ -63,7 +64,7 @@ int main()
 	try
 	{
 		Bureaucrat b = Bureaucrat("B", 42);
-		Form f = Form("F", 21, 37);
+		ShrubberyCreationForm f = ShrubberyCreationForm("F");
 
 		std::cout << std::endl;
 
@@ -90,7 +91,7 @@ int main()
 	{
 		Bureaucrat b = Bureaucrat("B", 42);
 		Bureaucrat c = Bureaucrat("C", 42);
-		Form f = Form("F", 67, 37);
+		ShrubberyCreationForm f = ShrubberyCreationForm("F");
 
 		std::cout << std::endl;
 
