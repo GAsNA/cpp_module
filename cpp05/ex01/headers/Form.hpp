@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 12:48:22 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/04 13:51:26 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/05 10:14:35 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Form
 		int			_grade_sign;
 		int			_grade_exec;
 
-		int			checkGrade(int grade) const;
+		void		checkGrade(int grade) const;
 
 	public:
 		Form(std::string name, int grade_sign, int grade_exec);

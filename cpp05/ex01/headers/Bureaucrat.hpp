@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 14:19:00 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/04 13:51:45 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/05 10:14:22 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ class Bureaucrat
 	private:
 		std::string	_name;
 		int	_grade;
-		int	checkGrade(int grade) const;
+	
+		void	checkGrade(int grade) const;
 
 	public:
 		Bureaucrat(std::string name, int grade);
