@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 16:03:34 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/05 10:15:25 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/07 15:58:03 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,16 +78,35 @@ void Bureaucrat::checkGrade(int grade) const
 		throw Bureaucrat::GradeTooHighException();
 }
 
-void Bureaucrat::signForm(Form *f)
+void Bureaucrat::signForm(Form & f)
 {
-	if (f->isSigned())
+	if (f.isSigned())
 	{
-		std::cout << this->_name << " couldn't sign " << f->getName() << " because form is already signed." << std::endl;
+		std::cout << this->_name << " couldn't sign " << f.getName() << " because form is already signed." << std::endl;
 		return ;
 	}
-	f->beSigned(this);
-	if (f->isSigned())
-		std::cout << this->_name << " signed " << f->getName() << std::endl;
-	else
-		std::cout << this->_name << " couldn't sign " << f->getName() << " because grade is too low." << std::endl;
+	try
+	{
+		f.beSigned(*this);
+		std::cout << this->_name << " signed " << f.getName() << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << this->_name << " couldn't sign " << f.getName() << " because ";
+		std::cout << e.what() << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(Form const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->_name << " executed " << form.getName();
+	}
+	catch (std::exception & e)
+	{
+		std::cout << this->_name << " didn't execute " << form.getName() << " because ";
+		std::cout << e.what() << std::endl;
+	}
 }

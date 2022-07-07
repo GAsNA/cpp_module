@@ -6,17 +6,19 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 16:03:34 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/05 17:01:30 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/07 16:09:50 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
+#include <cstdlib>
+
 /****************************************************/
 /*        CONSTRUCTORS DESTRUCTOR OPERATORS         */
 /****************************************************/
 
-RobotomyRequestForm::RobotomyRequestForm(std::string name) : _name(name), _signed(false), _grade_sign(72), _grade_exec(45)
+RobotomyRequestForm::RobotomyRequestForm(std::string name, std::string target) : Form(name, 72, 45, target)
 {
 	std::cout << "A RobotomyRequestForm has been created." << std::endl;
 }
@@ -27,6 +29,7 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &cpy)
 	if (this == &cpy)
 		return ;
 	this->_name = cpy._name;
+	this->_target = cpy._target;
 	this->_signed = cpy._signed;
 	this->_grade_sign = cpy._grade_sign;
 	this->_grade_exec = cpy._grade_exec;
@@ -38,6 +41,7 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(RobotomyRequestForm const &r
 	if (this == &rhs)
 		return (*this);
 	this->_name = rhs._name;
+	this->_target = rhs._target;
 	this->_signed = rhs._signed;
 	this->_grade_sign = rhs._grade_sign;
 	this->_grade_exec = rhs._grade_exec;
@@ -46,7 +50,7 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(RobotomyRequestForm const &r
 
 std::ostream &	operator<<( std::ostream & ostr, RobotomyRequestForm const & instance)
 {
-	ostr << instance.getName() << ", signed: " << instance.isSigned() << ".\n\tGrade for sign: " << instance.getGradeSign() << ", grade for exec: " << instance.getGradeExec();
+	ostr << instance.getName() << ", signed: " << instance.isSigned() << ".\n\tTarget: " << instance.getTarget() << "\n\tGrade for sign: " << instance.getGradeSign() << ", grade for exec: " << instance.getGradeExec();
 	return ostr;
 }
 
@@ -56,44 +60,14 @@ RobotomyRequestForm::~RobotomyRequestForm()
 }
 
 /****************************************************/
-/*                 GETTERS SETTERS                  */
-/****************************************************/
-
-std::string RobotomyRequestForm::getName() const
-{
-	return (this->_name);
-}
-
-bool RobotomyRequestForm::isSigned() const
-{
-	return (this->_signed);
-}
-
-int RobotomyRequestForm::getGradeSign() const
-{
-	return (this->_grade_sign);
-}
-
-int RobotomyRequestForm::getGradeExec() const
-{
-	return (this->_grade_exec);
-}
-
-/****************************************************/
 /*                MEMBER FUNCTIONS                  */
 /****************************************************/
 
-void	RobotomyRequestForm::checkGrade(int grade) const
+void	RobotomyRequestForm::executeConcrete() const
 {
-	if (grade > 150)
-		throw RobotomyRequestForm::GradeTooLowException();
-	else if (grade < 1)
-		throw RobotomyRequestForm::GradeTooHighException();
-}
-
-void	RobotomyRequestForm::beSigned(Bureaucrat *b)
-{
-	if (b->getGrade() > this->_grade_sign)
-		throw RobotomyRequestForm::GradeTooLowException();
-	this->_signed = true;
+	std::cout << "* bruit de perceuse *" << std::endl;
+	if ((rand() % 100) % 2 == 0)
+		std::cout << this->_target << " was robotized." << std::endl;
+	else
+		std::cout << "Failed to robotized " << this->_target << std::endl;
 }
