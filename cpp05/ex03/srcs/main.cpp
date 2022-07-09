@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 14:17:39 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/07 16:11:52 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/09 16:43:30 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,34 +16,30 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
-/*	try
 	{
-		Bureaucrat b = Bureaucrat("B", 1);
-		ShrubberyCreationForm f = ShrubberyCreationForm("F", "T");
+		Intern i;
+		Form *f;
 
 		std::cout << std::endl;
 
-		b.signForm(&f);
-		b.executeForm(f);
+		f = i.makeForm("robotomy request", "Bender");
+		delete f;
+	}
+
+	std::cout << "------------------------------" << std::endl;
+
+	{
+		Intern i;
+		Form *f;
 
 		std::cout << std::endl;
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Exception: " << e.what() << std::endl;
-	}
 
-	std::cout << std::endl << "--------------------------" << std::endl;
-*/
-	ShrubberyCreationForm sform("S", "T");
-	RobotomyRequestForm rform("R", "T");
-	PresidentialPardonForm pform("P", "T");
-	(void) sform;
-	(void) rform;
-	(void) pform;
-
+		f = i.makeForm("test", "test");
+		delete f;
+	}
 	return (0);
 }

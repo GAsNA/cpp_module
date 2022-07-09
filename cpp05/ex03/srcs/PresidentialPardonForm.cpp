@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 16:03:34 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/07 16:10:27 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/09 15:43:31 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /*        CONSTRUCTORS DESTRUCTOR OPERATORS         */
 /****************************************************/
 
-PresidentialPardonForm::PresidentialPardonForm(std::string name, std::string target) : Form(name, 25, 5, target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("presidential pardon", 25, 5, target)
 {
 	std::cout << "A PresidentialPardonForm has been created." << std::endl;
 }

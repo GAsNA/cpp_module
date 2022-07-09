@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 16:03:34 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/07 16:04:25 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/09 15:44:38 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 /*        CONSTRUCTORS DESTRUCTOR OPERATORS         */
 /****************************************************/
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name, std::string target) : Form(name, 145, 137, target) 
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("shrubbery creation", 145, 137, target) 
 {
 	std::cout << "A ShrubberyCreationForm has been created." << std::endl;
 }
