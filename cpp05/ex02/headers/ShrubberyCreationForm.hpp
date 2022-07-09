@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 12:48:22 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/07 16:02:06 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/09 16:45:27 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class ShrubberyCreationForm : public Form
 		virtual void	executeConcrete() const;
 
 	public:
-		ShrubberyCreationForm(std::string name, std::string target);
+		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(ShrubberyCreationForm const &cpy);
 		ShrubberyCreationForm &operator=(ShrubberyCreationForm const &rhs);
 		~ShrubberyCreationForm();

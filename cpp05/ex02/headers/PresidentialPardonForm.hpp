@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 12:48:22 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/07 16:01:45 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/09 16:44:55 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class PresidentialPardonForm : public Form
 		virtual void executeConcrete() const;
 
 	public:
-		PresidentialPardonForm(std::string name, std::string target);
+		PresidentialPardonForm(std::string target);
 		PresidentialPardonForm(PresidentialPardonForm const &cpy);
 		PresidentialPardonForm &operator=(PresidentialPardonForm const &rhs);
 		virtual ~PresidentialPardonForm();

@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 16:03:34 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/07 16:09:50 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/09 17:06:35 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 /*        CONSTRUCTORS DESTRUCTOR OPERATORS         */
 /****************************************************/
 
-RobotomyRequestForm::RobotomyRequestForm(std::string name, std::string target) : Form(name, 72, 45, target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("robotomy request", 72, 45, target)
 {
 	std::cout << "A RobotomyRequestForm has been created." << std::endl;
 }

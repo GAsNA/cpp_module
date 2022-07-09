@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 14:17:39 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/07 16:11:52 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/09 17:05:07 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ int main()
 
 	std::cout << std::endl << "--------------------------" << std::endl;
 */
-	ShrubberyCreationForm sform("S", "T");
-	RobotomyRequestForm rform("R", "T");
-	PresidentialPardonForm pform("P", "T");
+	ShrubberyCreationForm sform("T");
+	RobotomyRequestForm rform("T");
+	PresidentialPardonForm pform("T");
 	(void) sform;
 	(void) rform;
 	(void) pform;
