@@ -6,7 +6,7 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 12:33:18 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/30 10:47:04 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/10 13:03:30 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,15 @@ int main()
 		std::cout << tab[0]->getBrain().get_one_idea(-42) << std::endl;
 		std::cout << tab[0]->getBrain().get_one_idea(1) << std::endl;
 		std::cout << tab[1]->getBrain().get_one_idea(0) << std::endl;
+
+		std::cout << std::endl;
+
+		const Animal *dog = tab[0];
+
+		std::cout << std::endl;
+
+		std::cout << dog->getBrain().get_one_idea(0) << std::endl;
+		std::cout << dog->getBrain().get_one_idea(1) << std::endl;
 
 		std::cout << std::endl;
 

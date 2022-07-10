@@ -21,7 +21,7 @@ OBJS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.o}}
 DEPS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.d}}
 HEAD			=	${addprefix ${HEAD_PATH}, ${HEAD_FILES}}
 
-NAME			=	polymorphe
+NAME			=	abstractClass
 
 CC				=	clang++
 RM				=	rm -rf
