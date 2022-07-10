@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:56:05 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/08 11:57:10 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/10 12:32:44 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define CONVERT_HPP
 
 # include <iostream>
+
+enum type { CHAR, INT, FLOAT, DOUBLE, UNKNOW };
 
 void	convertChar(char *av);
 
