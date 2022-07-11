@@ -6,7 +6,7 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 12:25:43 by rleseur           #+#    #+#             */
-/*   Updated: 2022/06/29 23:21:53 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/11 12:25:00 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ Dog &Dog::operator=(Dog const &rhs)
 	if (this == &rhs)
 		return (*this);
 	this->_type = rhs._type;
+	if (this->_brain)
+		delete _brain;
 	this->_brain = new Brain(*rhs._brain);
 	return (*this);
 }
