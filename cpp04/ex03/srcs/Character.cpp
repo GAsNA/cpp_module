@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:07:54 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/02 14:26:40 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/11 14:15:22 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Character::Character(Character const &cpy)
 		return ;
 	this->_name = cpy._name;
 	for (int i = 0; i < 4; i++)
-		this->_items[i] = cpy._items[i];
+		this->_items[i] = cpy._items[i]->clone();
 }
 
 Character &Character::operator=(Character const &rhs)
@@ -39,7 +39,7 @@ Character &Character::operator=(Character const &rhs)
 	{
 		if (this->_items[i])
 			delete this->_items[i];
-		this->_items[i] = rhs._items[i];
+		this->_items[i] = rhs._items[i]->clone();
 	}
 	return (*this);
 }
@@ -60,7 +60,7 @@ std::string const	&Character::getName() const
 void	Character::equip(AMateria* m)
 {
 	int i = -1;
-	while (this->_items[++i]);
+	while (++i < 4 && this->_items[i]);
 	if(i < 4)
 		this->_items[i] = m;
 }
