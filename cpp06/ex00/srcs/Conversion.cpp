@@ -6,7 +6,7 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 23:17:33 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/27 17:33:17 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/27 17:38:44 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,14 @@ std::string	Conversion::toInt(void)
 
 std::string	Conversion::toFloat(void)
 {
+	float f = static_cast<float>(this->_valueD);
 	if (this->_type == IMP)
 		return "impossible";
-	if (!this->_valueD && this->_value[0] != '0')
+	if (!f && this->_value[0] != '0')
 		return this->_value + "f";
 	std::stringstream out;
-	out << this->_valueD;
-	if (this->_valueD / static_cast<int>(this->_valueD) == 1 || this->_valueD == 0)
+	out << f;
+	if (f / static_cast<int>(f) == 1 || f == 0)
 		return out.str() + ".0f";
 	return out.str() + "f";
 }
