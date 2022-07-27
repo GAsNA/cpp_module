@@ -6,14 +6,14 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 23:17:33 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/27 09:43:38 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/27 15:40:40 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Conversion.hpp"
 
 /***********************************************/
-/*	   Constructors / Destructor	       */
+/*			Constructors / Destructor		   */
 /***********************************************/
 
 Conversion::Conversion(std::string val) : _type(getType(val))
@@ -55,7 +55,7 @@ Conversion::~Conversion()
 
 
 /***********************************************/
-/*		  Conversions		       */
+/*				  Conversions				   */
 /***********************************************/
 
 std::string	Conversion::toChar(void)
@@ -88,6 +88,8 @@ std::string	Conversion::toFloat(void)
 		return this->_value + "f";
 	std::stringstream out;
 	out << this->_valueD;
+	if (this->_valueD / static_cast<int>(this->_valueD) == 1)
+		return out.str() + ".0f";
 	return out.str() + "f";
 }
 
@@ -99,6 +101,8 @@ std::string	Conversion::toDouble(void)
 		return this->_value;
 	std::stringstream out;
 	out << this->_valueD;
+	if (this->_valueD / static_cast<int>(this->_valueD) == 1)
+		return out.str() + ".0";
 	return out.str();
 }
 
@@ -109,40 +113,40 @@ void		Conversion::getDouble(std::string s)
 		if (this->_type != CHAR)
 			this->_valueD = std::atof(s.c_str());
 		else
-			this->_valueD static_cast<double>(s[0]);
+			this->_valueD = static_cast<double>(s[0]);
 	}
 }
 
 
 /***********************************************/
-/*		     Others		       */
+/*					 Others					   */
 /***********************************************/
 
 void	Conversion::aff_conversions()
 {
-	std::cout << "char: " << toChar(this->_value) << std::endl;
-	std::cout << "int: " << toInt(this->_value) << std::endl;
-	std::cout << "float: " << toDouble(this->_value) << "f" << std::endl;
-	std::cout << "double: " << toDouble(this->_value) << std::endl;
+	std::cout << "char: " << toChar() << std::endl;
+	std::cout << "int: " << toInt() << std::endl;
+	std::cout << "float: " << toFloat() << std::endl;
+	std::cout << "double: " << toDouble() << std::endl;
 }
 
-static e_type	getType(std::string val)
+e_type	getType(std::string val)
 {
 	if (val == "nanf" || val == "-inff" || val == "+inff")
 		return FLOAT;
 	if (val == "nan" || val == "-inf" || val == "+inf")
 		return DOUBLE;
-	if (val.size() == 1 && !isdigit(val))
+	if (val.size() == 1 && !isdigit(val[0]))
 		return CHAR;
-	for (int i = 0; i < val.size(); i++)
-		if (val[i] != '.' && val[i] != 'f' && val[i] != '-' && !isdigit(val[i]))
+	for (size_t i = 0; i < val.size(); i++)
+		if (val[i] != '.' && val[i] != 'f' && val[i] != '-' && !std::isdigit(val[i]))
 			return IMP;
 	int f = 0;
-	for (int i = 0; i < val.size(); i++)
+	for (size_t i = 0; i < val.size(); i++)
 		if (val[i] == 'f')
 			f++;
 	int p = 0;
-	for (int i = 0; i < val.size(); i++)
+	for (size_t i = 0; i < val.size(); i++)
 		if (val[i] == '.')
 			p++;
 	if (f == 1 && val[val.size() - 1] == 'f' && p == 1
@@ -153,14 +157,14 @@ static e_type	getType(std::string val)
 		&& ((val[0] == '-' && val[1] != '.') || (val[0] != '.'))
 		&& val[val.size() - 1] != '.')
 		return DOUBLE;
-	if (f == 0 && p == 0)
+	if (val.size() > 0 && f == 0 && p == 0)
 		return INT;
 	return IMP;
 }
 
-static std::string	getGoodValue(std::string val)
+std::string	getGoodValue(std::string val)
 {
 	if (val == "nanf" || val == "-inff" || val == "+inff")
-		return val.substr(0, myString.size()-1);
+		return val.substr(0, val.size()-1);
 	return val;
 }

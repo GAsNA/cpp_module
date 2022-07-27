@@ -6,7 +6,7 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 23:13:36 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/27 09:43:54 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/27 14:30:28 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string>
 # include <sstream>
 # include <cstdlib>
+# include <cctype>
 
 enum e_type { CHAR, INT, FLOAT, DOUBLE, IMP };
 
