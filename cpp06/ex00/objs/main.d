@@ -1,3 +1,3 @@
-objs/main.o: srcs/main.cpp headers/convert.hpp
+objs/main.o: srcs/main.cpp headers/Conversion.hpp
 
-headers/convert.hpp:
+headers/Conversion.hpp:

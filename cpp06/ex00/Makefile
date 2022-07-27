@@ -7,8 +7,8 @@ OBJS_PATH		=	./objs/
 HEAD_PATH		=	./headers/
 
 FILES			=	main.cpp	\
-					convert.cpp
-HEAD_FILES		=	convert.hpp
+				Conversion.cpp
+HEAD_FILES		=	Conversion.hpp
 
 SRCS			=	${addprefix ${SRCS_PATH}, ${FILES}}
 OBJS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.o}}
