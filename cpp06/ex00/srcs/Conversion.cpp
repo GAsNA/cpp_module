@@ -6,7 +6,7 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 23:17:33 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/27 15:40:40 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/27 09:56:38 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 Conversion::Conversion(std::string val) : _type(getType(val))
 {
-	std::cout << "Constructor called" << std::endl;
-	std::cout << "Type detected: " << this->_type << std::endl;
+//	std::cout << "Constructor called" << std::endl;
+//	std::cout << "Type detected: " << this->_type << std::endl;
 	if (this->_type != IMP)
 	{
 		getDouble(val);
@@ -29,7 +29,7 @@ Conversion::Conversion(std::string val) : _type(getType(val))
 
 Conversion::Conversion(Conversion const &cpy)
 {
-	std::cout << "Copy constructor called" << std::endl;
+//	std::cout << "Copy constructor called" << std::endl;
 	if (this == &cpy)
 		return ;
 	this->_value = cpy._value;
@@ -39,7 +39,7 @@ Conversion::Conversion(Conversion const &cpy)
 
 Conversion	&Conversion::operator=(Conversion const &rhs)
 {
-	std::cout << "Operator '=' called" << std::endl;
+//	std::cout << "Operator '=' called" << std::endl;
 	if (this == &rhs)
 		return (*this);
 	this->_value = rhs._value;
@@ -50,7 +50,7 @@ Conversion	&Conversion::operator=(Conversion const &rhs)
 
 Conversion::~Conversion()
 {
-	std::cout << "Destructor called" << std::endl;
+//	std::cout << "Destructor called" << std::endl;
 }
 
 
