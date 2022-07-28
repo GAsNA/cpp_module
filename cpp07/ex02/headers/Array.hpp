@@ -1,43 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 10:41:45 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/28 13:15:47 by rleseur          ###   ########.fr       */
+/*   Created: 2022/07/28 12:35:52 by rleseur           #+#    #+#             */
+/*   Updated: 2022/07/28 12:57:02 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-# define ITER_HPP
-
-# include <iostream>
+#ifndef ARRAY_HPP
+# define ARRAY_HPP
 
 template<typename T>
-void	aff(const T &a)
+class Array
 {
-	std::cout << a << std::endl;
-}
+	public:
+		Array();
+		Array(unsigned int n);
+		Array(Array const &cpy);
+		Array	&operator=(Array const &rhs);
+		~Array();
+		int	size();
+		
+		class InvalidIndexException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw() {
+					return "Invalid index!";
+				}
+		};
 
-void	square(int &a)
-{
-	a *= a;
-}
-
-template<typename T>
-void	iter(T *addr, int size, void (*f)(const T&))
-{
-	for (int i = 0; i < size; i++)
-		f(addr[i]);
-}
-
-template<typename T>
-void	iter(T *addr, int size, void (*f)(T&))
-{
-	for (int i = 0; i < size; i++)
-		f(addr[i]);
-}
+	private:
+		
+};
 
 #endif
