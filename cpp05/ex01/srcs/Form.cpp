@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 16:03:34 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/04 13:48:45 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/28 15:11:17 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 
 Form::Form(std::string name, int grade_sign, int grade_exec) : _name(name), _signed(false), _grade_sign(grade_sign), _grade_exec(grade_exec)
 {
-	if (checkGrade(grade_sign) && checkGrade(grade_exec))
+		checkGrade(grade_sign);
+		checkGrade(grade_exec);
 		std::cout << "A Form has been created." << std::endl;
 }
 
@@ -84,27 +85,17 @@ int Form::getGradeExec() const
 /*                MEMBER FUNCTIONS                  */
 /****************************************************/
 
-int Form::checkGrade(int grade) const
+void Form::checkGrade(int grade) const
 {
 	if (grade > 150)
-	{
 		throw Form::GradeTooLowException();
-		return (0);
-	}
 	else if (grade < 1)
-	{
 		throw Form::GradeTooHighException();
-		return (0);
-	}
-	return (1);
 }
 
 void	Form::beSigned(Bureaucrat *b)
 {
 	if (b->getGrade() > this->_grade_sign)
-	{
 		throw Form::GradeTooLowException();
-		return ;
-	}
 	this->_signed = true;
 }

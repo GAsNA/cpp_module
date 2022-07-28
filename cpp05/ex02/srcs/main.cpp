@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 14:17:39 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/09 17:05:07 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/28 15:17:41 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@
 
 int main()
 {
-/*	try
+	try
 	{
 		Bureaucrat b = Bureaucrat("B", 1);
-		ShrubberyCreationForm f = ShrubberyCreationForm("F", "T");
+		ShrubberyCreationForm f = ShrubberyCreationForm("T");
 
 		std::cout << std::endl;
 
-		b.signForm(&f);
+		b.signForm(f);
 		b.executeForm(f);
 
-		std::cout << std::endl;
+		std::cout << std::endl << std::endl;
 	}
 	catch (std::exception & e)
 	{
@@ -37,13 +37,100 @@ int main()
 	}
 
 	std::cout << std::endl << "--------------------------" << std::endl;
-*/
-	ShrubberyCreationForm sform("T");
-	RobotomyRequestForm rform("T");
-	PresidentialPardonForm pform("T");
-	(void) sform;
-	(void) rform;
-	(void) pform;
 
+	try
+	{
+		Bureaucrat b = Bureaucrat("B", 150);
+		ShrubberyCreationForm f = ShrubberyCreationForm("T");
+
+		std::cout << std::endl;
+
+		b.signForm(f);
+		b.executeForm(f);
+
+		std::cout << std::endl << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "--------------------------" << std::endl;
+
+	try
+	{
+		Bureaucrat b = Bureaucrat("B", 139);
+		ShrubberyCreationForm f = ShrubberyCreationForm("T");
+
+		std::cout << std::endl;
+
+		b.signForm(f);
+		b.executeForm(f);
+
+		std::cout << std::endl << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "--------------------------" << std::endl;
+
+	try
+	{
+		Bureaucrat b = Bureaucrat("B", 137);
+		ShrubberyCreationForm f = ShrubberyCreationForm("T");
+
+		std::cout << std::endl;
+
+		b.signForm(f);
+		b.executeForm(f);
+
+		std::cout << std::endl << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "--------------------------" << std::endl;
+	
+	try
+	{
+		Bureaucrat b = Bureaucrat("B", 1);
+		RobotomyRequestForm f = RobotomyRequestForm("T");
+
+		std::cout << std::endl;
+
+		b.signForm(f);
+		b.executeForm(f);
+
+		std::cout << std::endl << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "--------------------------" << std::endl;
+
+	try
+	{
+		Bureaucrat b = Bureaucrat("B", 1);
+		PresidentialPardonForm f = PresidentialPardonForm("T");
+
+		std::cout << std::endl;
+
+		b.signForm(f);
+		b.executeForm(f);
+
+		std::cout << std::endl << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "--------------------------" << std::endl;
 	return (0);
 }
