@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 16:03:34 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/09 17:06:35 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/28 14:10:49 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 void	RobotomyRequestForm::executeConcrete() const
 {
 	std::cout << "* bruit de perceuse *" << std::endl;
-	if ((rand() % 100) % 2 == 0)
+	if (rand() % 2 == 0)
 		std::cout << this->_target << " was robotized." << std::endl;
 	else
 		std::cout << "Failed to robotized " << this->_target << std::endl;

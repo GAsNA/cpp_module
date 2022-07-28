@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 12:48:22 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/07 16:07:52 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/28 14:12:45 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string>
 # include <iostream>
+# include <cstdlib>
 
 # include "Bureaucrat.hpp"
 class Bureaucrat;
