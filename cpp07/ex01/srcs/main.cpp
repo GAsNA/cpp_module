@@ -6,7 +6,7 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 10:45:11 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/28 13:11:04 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/28 16:28:28 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,18 @@ int main()
 	}
 	std::cout << "--------------------------------------------" << std::endl;
 	{
-		const int *tab = new int[3];
+		int *tab = new int[3];
 		tab[0] = 42;
 		tab[1] = 7;
 		tab[2] = 9;
 		::iter(tab, 3, &::aff);
 		::iter(tab, 3, &::square);
 		std::cout << "\nAfter square: " << std::endl;
+		::iter(tab, 3, &::aff);
+	}
+	std::cout << "--------------------------------------------" << std::endl;
+	{
+		const int tab[3] = {42, 7, 9};
 		::iter(tab, 3, &::aff);
 	}
 }

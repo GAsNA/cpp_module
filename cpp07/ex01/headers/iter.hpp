@@ -6,7 +6,7 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 10:41:45 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/28 13:15:47 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/28 16:29:43 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 
 template<typename T>
-void	aff(const T &a)
+void	aff(T &a)
 {
 	std::cout << a << std::endl;
 }
@@ -27,14 +27,14 @@ void	square(int &a)
 }
 
 template<typename T>
-void	iter(T *addr, int size, void (*f)(const T&))
+void	iter(T *addr, int size, void (*f)(T&))
 {
 	for (int i = 0; i < size; i++)
 		f(addr[i]);
 }
 
 template<typename T>
-void	iter(T *addr, int size, void (*f)(T&))
+void	iter(const T *addr, int size, void (*f)(const T&))
 {
 	for (int i = 0; i < size; i++)
 		f(addr[i]);
