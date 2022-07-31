@@ -6,7 +6,7 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 23:17:33 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/27 17:38:44 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/07/31 14:41:27 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ std::string	Conversion::toChar(void)
 {
 	if (this->_type == IMP)
 		return "impossible";
-	if (!this->_valueD && this->_value[0] != '0')
+	if ((!this->_valueD && this->_value[0] != '0') || this->_value.size() > 1)
 		return "impossible";
 	if (isprint(static_cast<char>(this->_valueD)))
 		return std::string(1, static_cast<char>(this->_valueD));
@@ -73,7 +73,7 @@ std::string	Conversion::toInt(void)
 {
 	if (this->_type == IMP)
 		return "impossible";
-	if (!this->_valueD && this->_value[0] != '0')
+	if ((!this->_valueD && this->_value[0] != '0') || this->_value.size() > 1)
 		return "impossible";
 	std::stringstream out;
 	out << static_cast<int>(this->_valueD);
@@ -98,7 +98,7 @@ std::string	Conversion::toDouble(void)
 {
 	if (this->_type == IMP)
 		return "impossible";
-	if (!this->_valueD && this->_value[0] != '0')
+	if ((!this->_valueD && this->_value[0] != '0') || this->_value.size() > 1)
 		return this->_value;
 	std::stringstream out;
 	out << this->_valueD;
@@ -165,7 +165,11 @@ e_type	getType(std::string val)
 
 std::string	getGoodValue(std::string val)
 {
-	if (val == "nanf" || val == "-inff" || val == "+inff")
+	if (val == "+inff")
+		return val.substr(1, val.size()-2);
+	if (val == "+inf")
+		return val.substr(1, val.size());
+	if (val == "nanf" || val == "-inff")
 		return val.substr(0, val.size()-1);
 	return val;
 }
