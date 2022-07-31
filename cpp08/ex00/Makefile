@@ -6,9 +6,8 @@ SRCS_PATH		=	./srcs/
 OBJS_PATH		=	./objs/
 HEAD_PATH		=	./headers/
 
-FILES			=	main.cpp	\
-				Span.cpp
-HEAD_FILES		=	Span.hpp
+FILES			=	main.cpp
+HEAD_FILES		=	easyfind.hpp
 
 SRCS			=	${addprefix ${SRCS_PATH}, ${FILES}}
 OBJS			=	${addprefix ${OBJS_PATH}, ${FILES:.cpp=.o}}
