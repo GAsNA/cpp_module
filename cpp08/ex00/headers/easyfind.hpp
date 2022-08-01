@@ -6,7 +6,7 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 18:05:21 by rleseur           #+#    #+#             */
-/*   Updated: 2022/07/31 19:01:24 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/08/01 13:01:34 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,21 @@ int	getInMap(std::map<T, int>(m), int toFind)
 	throw NoOccurenceFoundException();
 }
 
-template<typename T, typename U>
+template<typename T>
 int	easyfind(T t, int toFind)
 {
-	if (dynamic_cast<std::vector<int> >(t))
+	try {
+		std::vector<int> v = dynamic_cast<std::vector<int>&>(t);
 		return getInVector(t, toFind);
-	else if (dynamic_cast<std::list<int> >(t))
+	} catch (std::exception & e) {}
+	try {
+		std::list<int> l = dynamic_cast<std::list<int>&>(t);
 		return getInList(t, toFind);
-	else if (dynamic_cast<std::map<U, int> >(t))
+	} catch (std::exception & e) {}
+	try {
+		std::map<T, int> m = dynamic_cast<std::map<T, int>&>(t);
 		return getInMap(t, toFind);
+	} catch (std::exception & e) {}
 }
 
 #endif
