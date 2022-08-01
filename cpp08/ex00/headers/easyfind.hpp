@@ -6,7 +6,7 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 18:05:21 by rleseur           #+#    #+#             */
-/*   Updated: 2022/08/01 13:01:34 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/08/01 21:57:19 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,53 +27,13 @@ class NoOccurenceFoundException : public std::exception
 		}
 };
 
-int	getInVector(std::vector<int> v, int toFind)
-{
-	for (unsigned int i = 0; i < v.size(); i++) {
-		if (v[i] == toFind)
-			return v[i];
-	}
-	throw NoOccurenceFoundException();
-}
-
-int	getInList(std::list<int>(l), int toFind)
-{
-	/*std::list<int>::iterator it;
-	for (it = l.begin(); it != l.end(); it++) {
-		if (it == toFind)
-			return it;
-	}*/
-(void)l;
-(void)toFind;
-	throw NoOccurenceFoundException();
-}
-
 template<typename T>
-int	getInMap(std::map<T, int>(m), int toFind)
+typename T::iterator	easyfind(T t, int toFind)
 {
-	typename std::map<T, int>::iterator it;
-	for (it = m.begin(); it != m.end(); it++) {
-		if (it->second == toFind)
-			return it->second;
-	}
+	typename T::iterator i = std::find(t.begin(), t.end(), toFind);
+	if (i != t.end())
+		return i;
 	throw NoOccurenceFoundException();
-}
-
-template<typename T>
-int	easyfind(T t, int toFind)
-{
-	try {
-		std::vector<int> v = dynamic_cast<std::vector<int>&>(t);
-		return getInVector(t, toFind);
-	} catch (std::exception & e) {}
-	try {
-		std::list<int> l = dynamic_cast<std::list<int>&>(t);
-		return getInList(t, toFind);
-	} catch (std::exception & e) {}
-	try {
-		std::map<T, int> m = dynamic_cast<std::map<T, int>&>(t);
-		return getInMap(t, toFind);
-	} catch (std::exception & e) {}
 }
 
 #endif
