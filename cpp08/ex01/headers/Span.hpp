@@ -6,7 +6,7 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:26:54 by rleseur           #+#    #+#             */
-/*   Updated: 2022/08/01 23:23:46 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/08/02 14:13:02 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define SPAN_HPP
 
 # include <iostream>
+# include <vector>
+# include <cstdlib>
 
 class Span
 {
@@ -26,8 +28,10 @@ class Span
 		unsigned int	getSize();
 	
 		void	addNumber(int n);
-		int	shortestSpan();
-		int	longestSpan();
+		void	addWithIte(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+		int		shortestSpan();
+		int		longestSpan();
+		void	affValues();
 
 		class NoGoodValue : public std::exception {
 			public:
@@ -51,8 +55,8 @@ class Span
 		};
 
 	private:
-		int		*_array;
-		int	_size;
+		std::vector<int>	_array;
+		int					_size;
 };
 
 #endif
