@@ -6,7 +6,7 @@
 /*   By: rleseur <rleseur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 18:05:21 by rleseur           #+#    #+#             */
-/*   Updated: 2022/08/01 21:57:19 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/08/02 12:11:22 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <algorithm>
 # include <vector>
 # include <list>
-# include <map>
 # include <iostream>
 
 class NoOccurenceFoundException : public std::exception
